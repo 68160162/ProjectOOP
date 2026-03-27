@@ -39,6 +39,14 @@ public abstract class Enemy {
         hitEffectTicks = 2;   // เปิดเอฟเฟกต์โดนตีไว้ชั่วคราว
     }
 
+    // Overloading: เลือกได้ว่าจะให้แสดงเอฟเฟกต์หรือไม่
+    public void takeDamage(int damage, boolean showEffect) {
+        hp -= damage;         // ลด HP ตามค่าความเสียหาย
+        if (showEffect) {
+            hitEffectTicks = 2;
+        }
+    }
+
     // ตรวจว่าศัตรูกำลังอยู่ในสถานะโดนตีหรือไม่
     public boolean isHit() {
         return hitEffectTicks > 0;
